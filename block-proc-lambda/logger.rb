@@ -1,5 +1,5 @@
 class FlexLogger
-  LEVELS = [:debug, :info, :warn, :error]
+  Levels = [:debug, :info, :warn, :error]
   
   def initialize
     @handlers = {}
@@ -9,7 +9,7 @@ class FlexLogger
     @handlers[name] = { handler: block, filter: filter, formatter: formatter }
   end
 
-  LEVELS.each do |level|
+  Levels.each do |level|
     define_method(level) do |message|
       log(level, message)
     end
